@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="p-4 mb-2 bg-light">
+    <h5>тест Фильтра для вывода даты</h5>
+    <span>{{today | date:'short'}}</span><br>
+    <span>{{today | date:'long'}}</span><br><br>
+    <span>{{today | myDate:'longDate'}}</span>
+  </div>
+
+  <div class="p-4 mb-2 bg-light">
+    <h5>тест Фильтра суммы массива</h5>
+    <span>{{arr}} = </span>
+    <span>{{arr | mySum}}</span>
+  </div>
+</div>

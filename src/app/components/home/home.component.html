@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div>
+    <button routerLink="todo-add"
+            class="btn text-white float-right mb-5"
+            appMyNgClass
+            [bgColor]="'rgb(40, 87, 140)'"
+            [padding]="'2px 20px'"
+            [borderradius]="'0'"
+            [highlightbgColor]="'rgb(50, 108, 173)'"
+    >Add new todo
+    </button>
+  </div>
+  <div class="alert alert-info" *appMyIf="!todos?.length">Todos is not found</div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>userId</th>
+        <th>id</th>
+        <th>title</th>
+        <th>completed</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let todo of todos; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{todo.userId}}</td>
+        <td>{{todo.id}}</td>
+        <td>{{todo.title}}</td>
+        <td>{{todo.completed}}</td>
+        <td>
+          <button class="btn text-white"
+                  appMyNgClass
+                  [bgColor]="'rgb(142, 2, 33)'"
+                  [padding]="'2px 20px'"
+                  [borderradius]="'0'"
+                  [highlightbgColor]="'rgb(186, 1, 42)'"
+                  (click)="onDelete(todo.id)"> Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn text-white"
+                  appMyNgClass
+                  [bgColor]="'rgb(26, 76, 61)'"
+                  [padding]="'2px 20px'"
+                  [borderradius]="'0'"
+                  [highlightbgColor]="'rgb(45, 135, 108)'"
+                  routerLink="/todo/{{todo.id}}">Edit
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
